@@ -8,17 +8,18 @@ on:
     paths-ignore:
       - "**/*.md"
       - ".github/workflows/**"
+
   # Trigger the workflow manually with button
   workflow_dispatch:
 
 jobs:
   test:
     runs-on: ubuntu-latest
-  
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
+
       - name: Install Node JS
         uses: actions/setup-node@v4
         with:
@@ -26,11 +27,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        
+
       - name: Run Linters
         run: npm run lint
 
       - name: Run Formatter
         run: npm run format
-        
-  

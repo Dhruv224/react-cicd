@@ -1,4 +1,4 @@
-# Name of the workflow 
+# Name of the workflow
 name: Test Workflow
 
 # Trigger the workflow on a push to the main branch
@@ -16,7 +16,7 @@ jobs:
 
     # Define the steps to run in the job
     steps:
-      - name: Console Workflow running 
+      - name: Console Workflow running
         run: echo "Github Action Test workflow running successfully"
 
       # Output: 20.x as it is the default node version with ubuntu-latest runner
@@ -24,23 +24,16 @@ jobs:
         run: |
           node -v
 
-      - name: Clone the repository Manually
-        run: |
-          git clone https://github.com/github-actions/test-repo.git
-      
-      - name: Clone the repository using actions/checkout
-        uses: actions/checkout@v4
-
-      - name: Install Node 
+      - name: Install Node
         uses: actions/setup-node@v4
-        with: 
+        with:
           node-version: 18
 
       # Output: 18.x as it is the node version specified in the setup-node action
       - name: Check Node Version After Node Installation
         run: |
-          node -v      
+          node -v
 
-      - name: Console github variables 
+      - name: Console github variables
         run: |
           echo "${{ toJson(github)}}"
