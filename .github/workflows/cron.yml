@@ -1,0 +1,13 @@
+name: Cron Trigger Example
+
+on:
+  schedule:
+    - cron: '1 * * * *'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Workflow
+        run: |
+          echo "Running Workflow every 1 minute"
