@@ -1,8 +1,10 @@
 name: Cron Trigger Example
 
-on:
-  schedule:
-    - cron: '* * * * *'
+# on:
+#   schedule:
+#     - cron: '* * * * *'
+on: 
+  workflow_dispatch:
 
 jobs:
   test:
