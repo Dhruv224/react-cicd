@@ -2,7 +2,7 @@ name: Cron Trigger Example
 
 on:
   schedule:
-    - cron: '1 * * * *'
+    - cron: '* * * * *'
 
 jobs:
   test:
