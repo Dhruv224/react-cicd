@@ -1,0 +1,36 @@
+name: React App CI
+
+on:
+  # Trigger the workflow on a push to the main branch ignore md and workflow files
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "**/*.md"
+      - ".github/workflows/**"
+  # Trigger the workflow manually with button
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+  
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Install Node JS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Run Linters
+        run: npm run lint
+
+      - name: Run Formatter
+        run: npm run format
+        
+  
