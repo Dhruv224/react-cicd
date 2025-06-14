@@ -1,0 +1,31 @@
+name: Test Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Console Workflow running 
+        run: echo "Github Action Test workflow running successfully"
+
+      - name: Check Node version Before Node Installation
+        run: |
+          node -v
+
+      - name: Install Node 
+        uses: actions/setup-node@v4
+        with: 
+          node-version: 20
+
+      - name: Check Node Version After Node Installation
+        run: |
+          node -v      
+
+      - name: Console github variables 
+        run: |
+          echo "${{ toJson(github)}}"
