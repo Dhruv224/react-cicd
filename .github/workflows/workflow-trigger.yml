@@ -3,11 +3,6 @@ name: Workflow Trigger
 on:
   workflow_dispatch:
     inputs:
-      environment:
-        description: 'Environment to run tests against'
-        type: environment
-        required: true
-
       environment-type:
         description: 'Environment type'
         type: choice
@@ -22,7 +17,7 @@ on:
         type: boolean
         required: true
         default: true
-        
+
       formatter:
         description: 'Formatter to run'
         type: boolean
